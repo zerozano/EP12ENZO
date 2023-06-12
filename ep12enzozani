@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+include <string.h>
+
+int Hash(char *entrada, int pos, int L) {
+    int size = strlen(entrada);
+    int hash = 0;
+
+    for (int i = 0; i < size; i++) {
+        int pos_abc = entrada[i] - 'A';
+        hash += pos_abc + pos + i;
+    }
+
+    return hash;
+}
+
+int main() {
+    int N;
+    scanf("%d", &N);
+
+    while (N--) {
+    int L;
+    scanf("%d", &L);
+
+    int hash_total = 0;
+    for (int i = 0; i < L; i++) {
+    char entrada[51];
+        scanf("%s", entrada);
+
+        hash_total += Hash(entrada, i, L);
+    }
+
+    printf("%d\n", hash_total);
+    }
+
+    return 0;
+}
